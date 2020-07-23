@@ -20,7 +20,6 @@ RUN apt-get update \
  bzip2 \
  libbz2-dev \
  zlib1g-dev \
- mysql-client \
  libfontconfig \
  libfreetype6-dev \
  libjpeg62-turbo-dev \
@@ -67,15 +66,6 @@ RUN curl -s -f -L -o /tmp/installer.php https://raw.githubusercontent.com/compos
  && rm /tmp/installer.php \
  && composer --ansi --version --no-interaction \
  && composer global require drush/drush --prefer-dist
-
-
-#
-# WP-CLI
-#
-RUN curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
-RUN php wp-cli.phar --info --allow-root
-RUN chmod +x wp-cli.phar
-RUN mv wp-cli.phar /usr/local/bin/wp
 
 
 #
