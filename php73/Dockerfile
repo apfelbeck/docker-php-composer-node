@@ -39,10 +39,14 @@ RUN apt-get update \
 # Install Node (with NPM), and Yarn (via package manager for Debian)
 #
 # https://nodejs.org/en/download/package-manager/#debian-and-ubuntu-based-linux-distributions
-RUN curl -sL https://deb.nodesource.com/setup_8.x | bash -
+RUN curl -sL https://deb.nodesource.com/setup_14.x | bash -
 RUN apt-get update \
  && apt-get install -y \
  nodejs
+ 
+# confirm that it was successful 
+RUN node -v
+RUN npm -v
 RUN npm install -g yarn
 
 #
